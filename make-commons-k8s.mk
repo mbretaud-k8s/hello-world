@@ -1,22 +1,15 @@
 #
 # You need to define
-#   buildArgs
-#   containerName
-#   containerPublish
-#   containerVolumes
-#   containerImage
-#PV_FILE=jenkins-pv.yaml
-#PV_NAME=jenkins-pv
-#
-#PVC_FILE=jenkins-pvc.yaml
-#PVC_NAME=jenkins-pvc
+#   deploymentFile
+#   deploymentName
+#   persistentVolumeFile
+#   persistentVolumeName
+#   persistentVolumeClaimFile
+#   persistentVolumeClaimName
+#   serviceFile
+#   serviceName
 
-#PODS_FILE=jenkins-deployment.yaml
 POD_NAME=$(shell kubectl get pods --output='json' | jq ".items | .[] | .metadata | select(.name | startswith(\"$(deploymentName)\")) | .name" | head -1 | sed 's/"//g')
-
-#SERVICE_FILE=jenkins-service.yaml
-#SERVICE_NAME=jenkins
-#SERVICE_PORT_FORWARD=8080
 
 default:
 
@@ -90,8 +83,3 @@ describe-service:
 
 get-service:
 	kubectl get service/$(serviceName)
-
-
-
-
-
