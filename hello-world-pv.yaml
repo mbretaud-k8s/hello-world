@@ -1,0 +1,14 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: hello-world-pv
+  labels:
+    type: local
+spec:
+  storageClassName: hello-world
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/c/tmp/hello-world"
