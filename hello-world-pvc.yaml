@@ -2,6 +2,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: hello-world-pvc
+  namespace: hello-world
   labels:
     type: local
 spec:
